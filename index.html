@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 호출</title>
+  </head>
+  <body>
+    <section>
+      <h1>AI와 대화</h1>
+      <button id="callBtn">호출</button>
+    </section>
+    <script>
+      const callBtn = document.querySelector("#callBtn");
+      callBtn.addEventListener("click", async () => {
+        const url = "http://localhost3000:gemini";
+        const response = await fetch(url, {
+          method: "POST",
+          "Content-type": "application/json",
+        });
+        const data = await response.json();
+        console.log(data);
+      });
+    </script>
+  </body>
+</html>
